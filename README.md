@@ -6,10 +6,10 @@
 
 | Iterator | Returns | description
 |---|---|---|
-| Array.forEach() | Iterate only, no return. ||
-| Array.map() | Returns new array | creating result for every array element.|
-| Array.filter() | Returns new array | creating result for only pass a test in callback.|
-| Array.reduce() | returns new array or value  ||
+| Array.forEach(value, index) | Iterate only, no return. ||
+| Array.map(value, index) | Returns new array | Creats result for every array element.|
+| Array.filter(value, index) | Returns new array | Creat result for only pass a test in callback.|
+| Array.reduce(acc, currentValue{}, initialValue) | returns new array or value  ||
 
 
 ### Iterator for Object
@@ -24,14 +24,15 @@ for (var key in obj)
 
 ### Array methods
 
-| Function  | Syntax  |
-|---|---|
-| Sort          |  Array.sort() |
-| Find Index    |  Array.indexOf('a') |
-| Add an element     |  Array.push() |
-| Delete an element  | Array.splice()  |
-| Copy      |  Array.slice() |
-| Find the value of the first match.  | Array.find()   |
+| Function  | Syntax  | Description | 
+|---|---|---|
+| Sort          |  Array.sort() | | 
+| Find Index    |  Array.indexOf('a') | -1 or 0> |
+| Add an element     |  Array.push() | returns new length. |
+| Merge two array     |  Array.concat() | returns new array.<br> array1.concat(array2) |
+| Copy      |  Array.slice() | array.slice()|
+| Delete an element  | Array.splice()  | array.splice(index, 1) |
+| Find the value of the first match.  | Array.find() | |
 
 ### Object methods
 

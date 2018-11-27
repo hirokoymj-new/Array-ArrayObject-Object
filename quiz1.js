@@ -1,7 +1,10 @@
-const output = [
-  {skill: "javascript", user: "Chad"},
-  {skill: "javascript", user: "Bill"},
-  {skill: "javascript", user: "Sue"}];
+//Sort an array in alphabetical order for user's name
+const data = [
+  { description: 'Rent', amount: 100, createdAt: 1000 },
+  { description: 'Coffee', amount: 300, createdAt: -1000 },
+  { description: 'Small Coffee', amount: 300, createdAt: -1000 },
+];
 
-output.sort((a,b) => a.user > b.user ? -1 : 1);
-console.log(output);
+// Copy of array
+const copy2 = data.slice();
+console.log(copy2);

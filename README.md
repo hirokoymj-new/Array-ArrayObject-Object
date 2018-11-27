@@ -9,7 +9,7 @@
 | Array.forEach(value, index) | Iterate only, no return. ||
 | Array.map(value, index) | Returns new array | Creats result for every array element.|
 | Array.filter(value, index) | Returns new array | Creat result for only pass a test in callback.|
-| Array.reduce(acc, currentValue{}, initialValue) | returns new array or value  ||
+| Array.reduce((acc, currentVal) =>{}, initialVal) | returns new array or value  ||
 
 
 ### Iterator for Object
@@ -27,7 +27,7 @@ for (var key in obj)
 | Function  | Syntax  | Description | 
 |---|---|---|
 | Sort          |  Array.sort() | | 
-| Find Index    |  Array.indexOf('a') | -1 or 0> |
+| Find Index    |  Array.indexOf('a') | ALWAYS Compare with **-1**<br />`Array.indexOf('a') === -1` <br>`Array.indexOf('a') > -1` |
 | Add an element     |  Array.push() | returns new length. |
 | Merge two array     |  Array.concat() | returns new array.<br> array1.concat(array2) |
 | Copy      |  Array.slice() | array.slice()|

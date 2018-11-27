@@ -12,16 +12,6 @@
 | Array.reduce((acc, currentVal) =>{}, initialVal) | returns new array or value  ||
 
 
-### Iterator for Object
-
-| Iterator | returns |
-|---|---|
-| For..in | iterate only. no return. |
-
-```js
-for (var key in obj)
-```
-
 ### Array methods
 
 | Function  | Syntax  | Description | 
@@ -34,11 +24,6 @@ for (var key in obj)
 | Delete an element  | Array.splice()  | array.splice(index, 1) |
 | Find the value of the first match.  | Array.find() | |
 
-### Object methods
-
-| Function  | Syntax  |
-|---|---|
-| Find property | Object.hasOwnProperty('property1') |
 
 <hr />
 

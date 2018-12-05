@@ -1,4 +1,4 @@
-# Array, Array of object, Object
+# Array, Array of object
 
 - JavaScript is **no associative array** so to use  `Array of object` to make associative array.
 

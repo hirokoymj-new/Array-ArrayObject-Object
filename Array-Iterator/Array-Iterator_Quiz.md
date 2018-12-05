@@ -1,15 +1,5 @@
 # Quiz - Array Iterator
 
-| Iterator | Returns | description
-|---|---|---|
-| Array.forEach() | Iterate only, no return. ||
-| Array.map() | Returns new array | creating result for every array element.|
-| Array.filter() | Returns new array | creating result for only pass a test in callback.|
-| Array.reduce() | returns new array or value  ||
-
-
-<hr />
-
 **Q1: Get an array in which desciption has 'Rent'**
 ```js
 const data = [
@@ -21,7 +11,8 @@ const data = [
 
 **Q1: Answer**
 ```js
-const output = data.filter(d => d.description.toLowerCase().includes('rent'));
+const result = data.filter((d)=> d.description.toLowerCase().indexOf('rent') !== -1);
+console.log(result);
 //[ { description: 'Rent', amount: 100, createdAt: 1000 } ]
 ```
 <hr />

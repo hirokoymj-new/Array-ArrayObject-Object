@@ -5,6 +5,6 @@ const data = [
   { description: 'Small Coffee', amount: 300, createdAt: -1000 },
 ];
 
-// Copy of array
-const copy2 = data.slice();
-console.log(copy2);
+
+const result = data.filter((d)=> d.description.toLowerCase().indexOf('rent') !== -1);
+console.log(result); //[ { description: 'Rent', amount: 100, createdAt: 1000 } ]

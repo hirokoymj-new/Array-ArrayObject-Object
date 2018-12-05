@@ -1,22 +1,30 @@
 # Array.sort
 
 - The default sort order is according to string Unicode code points.
-- To compare the numbers instead of string the compare function can simply subtract b from a. (a-b)
-- **Compare Function rule** 
->If compareFunction(a, b) is less than 0, sort a to an index lower than b, i.e. a comes first.
->If compareFunction(a, b) is greater than 0, sort b to an index lower than a, i.e. b comes first.
->If compareFunction(a, b) returns 0, leave a and b unchanged.
+- If in compare function a and b are the number compare, just simply substract a-b.`(a-b)`
+- If you want to sort by acending order return `-1`.
+  ```js
+  (a<b) return -1 // acending order
+  ```
+- If you want to sort by decending order return `1`.
+  ```js
+  (a<b) return 1 // decending order
+  ```
 
+**Acending order**
 ```js
-function compare(a, b) {
-  if (a is less than b by some ordering criterion) {
-    return -1;
-  }
-  if (a is greater than b by the ordering criterion) {
-    return 1;
-  }
-  return 0; // a must be equal to b
-}
+var array = [1, 30, 4, 21];
+array.sort((a,b)=> a < b ? -1 : 1);
+console.log(array);
+//[ 1, 4, 21, 30 ]
+```
+
+**Decending order**
+```js
+var array = [1, 30, 4, 21];
+array.sort((a,b)=> a < b ? 1 : -1);
+console.log(array);
+//[ 30, 21, 4, 1 ]
 ```
 
 

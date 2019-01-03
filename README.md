@@ -20,8 +20,8 @@
 | Find Index    |  Array.indexOf('a') | ALWAYS Compare with **-1**<br />`Array.indexOf('a') === -1` <br>`Array.indexOf('a') > -1` |
 | Add an element     |  Array.push() | returns new length. |
 | Merge two array     |  Array.concat() | returns new array.<br> array1.concat(array2) |
-| Copy      |  Array.slice() | array.slice()|
-| Delete an element  | Array.splice()  | array.splice(index, 1) |
+| Copy      |  Array.slice(start,end) | The original array does **NOT modified**.|
+| Delete an element  | Array.splice(index, 1)  | The original array **changes**! |
 | Find the value of the first match.  | Array.find() | |
 
 

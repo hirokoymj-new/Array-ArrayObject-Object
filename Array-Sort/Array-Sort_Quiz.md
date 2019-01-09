@@ -93,6 +93,29 @@ const output4 = employees.filter(employee => employee.skill === 'javascript')
 ```
 
 
+**Q4:**
+- Sort Sum in dataCollection
+
+```js
+var dataCollection = [
+  { values: { Month: "August", Sum: "10" } },
+  { values: { Month: "February", Sum: "25" } },
+  { values: { Month: "July", Sum: "35" } }
+];
+```
+
+**Q4:Answer**
+```js
+var dataCollection = [
+  { values: { Month: "August", Sum: "10" } },
+  { values: { Month: "February", Sum: "25" } },
+  { values: { Month: "July", Sum: "35" } }
+];
+
+dataCollection.sort((a, b)=> a.values.Sum - b.values.Sum);
+console.log(dataCollection);
+```
+
 
 
 

@@ -68,29 +68,37 @@ console.log(greenIndex); //2
 
 **Q4: Create pagination**
 ```js
-const data = [0,1,2,3,4,5,6,7,8,9]; //len 10
+// Create Pagination
+const data = [1,2,3,4,5,6,7,8,9,10];
 let pageSize = 3;
-// Page-1: [ 0, 1, 2 ]
-// Page-2: [ 3, 4, 5 ]
-// Page-3: [ 6, 7, 8 ]
-// Page-4: [ 9 ]
+// [ 1, 2, 3 ]
+// [ 4, 5, 6 ]
+// [ 7, 8, 9 ]
+// [ 10 ]
 ```
 
 **Q4: Answer**
 POINT
 
-- The quotient for division returns float. So to be interger, it must use Math.floor();
-  ```js
-  1/2   // returns 0.5 in JavaScript
-  ```
+- Use **array.slice()** because slice() does NOT modify the original array! 
+```js
+// const page1 = data.slice(0, 3);
+// const page2 = data.slice(3, 6);
+// const page3 = data.slice(6, 9);
+// const page4 = data.slice(9, 12);
+```
 
-- The max page number is calculated with data length and page size.
-- Use array.slice() because slice() does NOT modify the original array! 
+
+- The quotient for division returns float. So to be interger, it must use Math.floor();
+```js
+1/2   // returns 0.5 in JavaScript
+```
+ 
 
 ```js
-const data = [0,1,2,3,4,5,6,7,8,9]; //len 10
+const data = [1,2,3,4,5,6,7,8,9,10];
 let pageSize = 3;
-let max = Math.floor(data.length/3)+ data.length%3;
+let max = Math.ceil(data.length/3);
 
 for(let i=0; i<max; i++){
   let begin = i*pageSize;
@@ -98,7 +106,13 @@ for(let i=0; i<max; i++){
   //console.log(`${begin}, ${end}`);
   console.log(data.slice(begin, end))
 }
+// [ 1, 2, 3 ]
+// [ 4, 5, 6 ]
+// [ 7, 8, 9 ]
+// [ 10 ]
 ```
+<hr />
+
 
 
 **Q5: How to check if array is empty**
@@ -118,3 +132,46 @@ const data = {}
 ```js
 Object.keys(obj).length === 0
 ```
+
+
+**Q7:**
+- Grouping object
+  
+```js
+var employees = [
+  { skill: 'css', user: 'Bill' },
+  { skill: 'javascript', user: 'Chad' },
+  { skill: 'javascript', user: 'Bill' },
+  { skill: 'css', user: 'Sue' },
+  { skill: 'javascript', user: 'Sue' },
+  { skill: 'html', user: 'Sue' }
+];
+// RESULT
+// const employees2 = [
+//   {skill: 'css', count: 2},
+//   {skill: 'javascript', count: 3},
+//   {skill: 'html', count: 1},
+// ]
+```
+
+**Q7:Answer**
+```js
+const result = employees.reduce((acc, currentValue)=>{
+  let existing = acc.map(d => d.skill).indexOf(currentValue.skill);
+  if(existing === -1){ //NEW
+    const obj = {}
+    obj.skill = currentValue.skill;
+    obj.count = 1;
+    acc.push(obj);
+  }else{
+    acc[existing].count++;
+  }
+  return acc;
+}, []);
+
+console.log(result);
+// [ { skill: 'css', count: 2 },
+//   { skill: 'javascript', count: 3 },
+//   { skill: 'html', count: 1 } ]
+```
+

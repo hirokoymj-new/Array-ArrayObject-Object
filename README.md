@@ -1,36 +1,27 @@
-# Array, Array of object
+# Array
 
-- JavaScript is **no associative array** so to use  `Array of object` to make associative array.
+# Array of Object
 
-### Iterator for Array 
+- JavaScript is **no associative array** so to use `Array of object` to make associative array.
 
-| Iterator | Returns | description
-|---|---|---|
-| Array.forEach(value, index) | Iterate only, no return. ||
-| Array.map(value, index) | Returns new array | Creats result for every array element.|
-| Array.filter(value, index) | Returns new array | Creat result for only pass a test in callback.|
-| Array.reduce((acc, currentVal) =>{}, initialVal) | returns new array or value  ||
+### Iterators
 
+| Iterator                                         | Return Value                                          | description                                               |
+| ------------------------------------------------ | ----------------------------------------------------- | --------------------------------------------------------- |
+| Array.forEach(value, index)                      | NO return values                                      |                                                           |
+| Array.map(value, index)                          | Returns new array                                     | Creating a result for every array element.                |
+| Array.filter(value, index)                       | Returns new array                                     | Creating a result that is only passed a test in callback. |
+| Array.find()                                     | Returns the FIRST matched **VALUE** <br />(NOT array) |                                                           |
+| Array.reduce((acc, currentVal) =>{}, initialVal) | Returns new array **OR** value                        |                                                           |
 
-### Array methods
+### Methods
 
-| Function  | Syntax  | Description | 
-|---|---|---|
-| Sort          |  Array.sort() | | 
-| Find Index    |  Array.indexOf('a') | ALWAYS Compare with **-1**<br />`Array.indexOf('a') === -1` <br>`Array.indexOf('a') > -1` |
-| Add an element     |  Array.push() | returns new length. |
-| Merge two array     |  Array.concat() | returns new array.<br> array1.concat(array2) |
-| Copy      |  Array.slice(start,end) | The original array does **NOT modified**.|
-| Delete an element  | Array.splice(index, 1)  | The original array **changes**! |
-| Find the value of the first match.  | Array.find() | |
-
-
-<hr />
-
-# Index
-- [Array - Iterator](/Array-Iterator/Array-Iterator.md)
-- [Array - Iterator - Quiz](/Array-Iterator/Array-Iterator_Quiz.md)
-- [Array - Sort]()
-- [Array - Sort - Quiz]()
-
-
+| Function   | Syntax                 | Description                                                                               |
+| ---------- | ---------------------- | ----------------------------------------------------------------------------------------- |
+| Sort       | Array.sort()           |                                                                                           |
+| Find Index | Array.indexOf('a')     | ALWAYS Compare with **-1**<br />`Array.indexOf('a') === -1` <br>`Array.indexOf('a') > -1` |
+| Add        | Array.push()           | returns new length.                                                                       |
+| Merge      | Array.concat()         | returns new array.<br> array1.concat(array2)                                              |
+| Copy       | Array.slice(start,end) | The original array does **NOT modified**.                                                 |
+| Delete     | Array.splice(index, 1) | The original array **changes**!                                                           |
+| Find       | Array.find()           | Find a value of the first match.                                                          |

@@ -1,90 +1,94 @@
 # Algorithm - Array
 
-## Table of contents
-1. [Merge two array](#merge-two-array)
-2. [Find min/max number in Array](#find-minmax-number-in-array)
-3. [Finding missing number in Array](#finding-missing-number-in-array)
-4. [Sorting array](#sorting-array)
-5. [Sorting array of objects](#sorting-array-of-objects)
-6. [Array - multiply](#array---multiply)
-7. [Array - duplication](#array---duplication)
-8. [Define Array.min(), Array.max() using prototype](#define-arraymin-and-arraymax-using-prototype)
-9. [Flatten and convert Array to Object](#flatten-and-convert-array-to-object)
-
-
+1. Merge two array
+2. Remove duplicate values
+3. Find min/max number in Array
+4. Finding missing number in Array
+5. Sorting array
+6. Sorting array of objects
+7. Array - multiply
+8. Array - duplication
+9. Define Array.min(), Array.max() using prototype
+10. Flatten and convert Array to Object
 
 ## Merge two array
 
-**Method 1: Using `concat` function.**  `Array.prototype.concat()`
+**Q1: Merge two array**
 
 ```js
-var a1 = [2,5,6,9];
-var a2 = [1,2,3,29];
-var result = a1.concat(a2);
+const a1 = [2, 5, 6, 9];
+const a2 = [1, 2, 3, 29];
+```
+
+**A1 Answer**
+
+**Key of answer**
+
+- `Array.concat()`
+
+```js
+const a1 = [2, 5, 6, 9];
+const a2 = [1, 2, 3, 29];
+const result = a1.concat(a2);
+
 console.log(result); //[ 2, 5, 6, 9, 1, 2, 3, 29 ]
 ```
 
-**Method 2: Create new function to merge two array without duplicate value.**
+<hr />
+
+## Remove duplication value
+
+Q2: Merge two arrays and then remove duplicate values. A final result should be `[2, 5, 6, 9, 1, 2, 3, 29]`
 
 ```js
-function mergeTwoArray(array1, array2){
-	var output = array2;
-
-	array1.forEach(function(value){
-		if(output.indexOf(value) == -1 ){
-			output.push(value);
-		}
-	});
-
-	return output;
-}
-console.log(mergeTwoArray(a1, a2)); //[ 1, 2, 3, 29, 5, 6, 9 ]
+const a1 = [2, 5, 6, 9];
+const a2 = [1, 2, 3, 29];
+// expected result =[1,2,3,5,6,9,29]
 ```
 
+A2:
 
-**Method 3: Use `reduce` function.** 
+**Key of answer**
 
-**Syntax**
->Array.prototype.reduce(callback, initialValue)
-
->array.reduce(function(accumulator, currentValue, currentIndex), initialValue)
+- reduce((acc, currentValue)=>{}, [])
+- indexOf() => always compares -1 or not
 
 ```js
-var a1 = [2,5,6,9];
-var a2 = [1,2,3,29];
-var array3 = a1.concat(a2); //[2, 5, 6, 9, 1, 2, 3, 29 ]
-var output = array3.reduce(function(accu, val){
-	if(acc.indexOf(val) == -1 ){
-		acc.push(val);
-	}
-	return acc;
+const a1 = [2, 5, 6, 9];
+const a2 = [1, 2, 3, 29];
+
+const merged = a1.concat(a2);
+const result = merged.reduce((acc, currentValue) => {
+  if (acc.indexOf(currentValue) === -1) {
+    acc.push(currentValue);
+  }
+  return acc;
 }, []);
 
-console.log(output.sort()); //[ 1, 2, 29, 3, 5, 6, 9 ]
+console.log(result);
+// [2, 5, 6, 9, 1, 3, 29 ]
+result.sort((a, b) => (a < b ? -1 : 1));
 ```
 
-
 ## Find min/max number in Array
+
 - There is no max/min function in Array so we will try to use Math.max function.
 - Math.max function: **`Math.max(value1, value2, value3)`**.
 - Invoking a Function with a Function Method using `call()` or `apply()`, which are predefined JavaScript **function methods**.
 
-
-| Methods  | Definition                | Syntax                                 |
-|----------|---------------------------|--------------------------------------- |
-| call()   | Function.prototype.call() |function.call(thisArg, arg1, arg2, arg3) |
-| apply()  | Function.prototype.apply()|function.apply(thisArg, array)           |
-
-
+| Methods | Definition                 | Syntax                                   |
+| ------- | -------------------------- | ---------------------------------------- |
+| call()  | Function.prototype.call()  | function.call(thisArg, arg1, arg2, arg3) |
+| apply() | Function.prototype.apply() | function.apply(thisArg, array)           |
 
 ```js
-var array = [2,5,6,9];
+var array = [2, 5, 6, 9];
 var max = Math.max.apply(null, array); //9
 var min = Math.min.apply(null, array); //2
 ```
 
-
 ## Finding missing number in Array
+
 1. Find max value.
 2. Find min value.
 3. Preparing missing[].
@@ -98,29 +102,30 @@ var array = [5, 2, 6, 1, 3];
 var max = Math.max.apply(null, array);
 var min = Math.min.apply(null, array);
 
-function findMissing(max, min, array){
-	var i = min;
-	var missing = [];
+function findMissing(max, min, array) {
+  var i = min;
+  var missing = [];
 
-	while(i <= max){
-		if(array.indexOf(i) == -1){
-			missing.push(i);
-		}
-		i++;
-	}
-	return missing;
+  while (i <= max) {
+    if (array.indexOf(i) == -1) {
+      missing.push(i);
+    }
+    i++;
+  }
+  return missing;
 }
-console.log(findMissing(max,min,array)); //[ 4 ]
+console.log(findMissing(max, min, array)); //[ 4 ]
 ```
 
 ## Sorting array
+
 - Use sort function in Array. **`Array.prototype.sort()`**
 - Syntax: **`arr.sort(compareFunction)`**
 
 ```js
 var numbers = [4, 2, 5, 1, 3];
 
-numbers.sort(function(a, b) {
+numbers.sort(function (a, b) {
   return a - b;
 });
 
@@ -129,14 +134,15 @@ console.log(numbers);
 ```
 
 ## Sorting array of objects
+
 - Sorting info object by count with ascending order.
 
 ```js
-var info = 
+var info =
 [
   { skill: 'css', user: [ 'Sue', 'Bill' ], count: 2 },
   { skill: 'javascript', user: [ 'Chad', 'Bill', 'Sue' ], count: 3 },
-  { skill: 'html', user: [ 'Sue' ], count: 1 } 
+  { skill: 'html', user: [ 'Sue' ], count: 1 }
 ];
 
 function sortByKey(array, key) {
@@ -149,156 +155,160 @@ function sortByKey(array, key) {
 console.log(sortByKey(info, 'count'));
 // Result
 [
-  { skill: 'html', user: [ 'Sue' ], count: 1 } 
+  { skill: 'html', user: [ 'Sue' ], count: 1 }
   { skill: 'css', user: [ 'Sue', 'Bill' ], count: 2 },
   { skill: 'javascript', user: [ 'Chad', 'Bill', 'Sue' ], count: 3 },
 ];
 ```
 
-
 ## Array - multiply
+
 - Use `array.reduce` function.
 
 **Syntax**
+
 > Array.prototype.reduce(callback, initialValue)
 
->array.reduce(function(accumulator, currentValue, currrentIndex)
+> array.reduce(function(accumulator, currentValue, currrentIndex)
 
 ```js
-var array = [3,5,2];
-var multiply = array.reduce(function(acc, val){
-	return acc*val;
+var array = [3, 5, 2];
+var multiply = array.reduce(function (acc, val) {
+  return acc * val;
 }, 1);
 console.log(multiply); //30
 ```
 
-
 **Without using array.reduce().**
 
 ```js
-var array = [3,5,2];
+var array = [3, 5, 2];
 
-function multi(array){
-	var sum = 1;
-	array.forEach(function(value, index){
-		sum = sum * value;
-	});
-	return sum;
+function multi(array) {
+  var sum = 1;
+  array.forEach(function (value, index) {
+    sum = sum * value;
+  });
+  return sum;
 }
 console.log(multi(array)); //30
 ```
 
-
 ## Array - sum
+
 - Use `array.reduce` function.
 
 **Syntax**
+
 > Array.prototype.reduce(callback, initialValue)
 
 > array.reduce(function(accumlator, currentValue, currentIndex)
 
-
 ```js
-var array = [3,5,2];
-var sum = array.reduce(function(acc, val){
-	return acc + val;
+var array = [3, 5, 2];
+var sum = array.reduce(function (acc, val) {
+  return acc + val;
 }, 0);
 console.log(sum); //10
 ```
 
-
 ## Array - duplication
+
 - Use concat function in Array. **`Array.prototype.concat()`**
 - The concat() method is used to merge two or more arrays.
 
 ```js
-var array = [1,2,3,4,5];
+var array = [1, 2, 3, 4, 5];
 
 var newArray = array.concat(array);
 console.log(newArray); //[ 1, 2, 3, 4, 5, 1, 2, 3, 4, 5 ]
 ```
 
-
 ## Define Array.min() and Array.max() using prototype
+
 - Use Object.prototype property. **`Object.prototype`**
 
-
 ```js
-Array.prototype.max = function() {
+Array.prototype.max = function () {
   return Math.max.apply(null, this);
 };
 
-Array.prototype.min = function() {
+Array.prototype.min = function () {
   return Math.min.apply(null, this);
 };
 
-var a = [1,2,3];
+var a = [1, 2, 3];
 console.log(a.max());
 console.log(a.min());
 ```
 
-
 ## Flatten and convert Array to Object.
+
 - Use reduce function.
 
 **Syntax**
+
 > Array.prototype.reduce(callback, initialValue)
 
 > array.reduce(function(accumlator, currentValue, currentIndex)
 
 ```js
-var names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
+var names = ["Alice", "Bob", "Tiff", "Bruce", "Alice"];
 //{'Alice':2, 'Bob':1, 'Tiff':1, 'Bruce':1}
 var output = {};
 
-names.forEach(function(value){
-	if(output.hasOwnProperty(value)){
-		output[value]++;
-	}else{
-		output[value] = 1;
-	}
+names.forEach(function (value) {
+  if (output.hasOwnProperty(value)) {
+    output[value]++;
+  } else {
+    output[value] = 1;
+  }
 });
 
 //console.log(output);
 
-var countName = names.reduce(function(obj, current){
-//console.log("Existing: " + obj.hasOwnProperty(current));
+var countName = names.reduce(function (obj, current) {
+  //console.log("Existing: " + obj.hasOwnProperty(current));
 
-	if(obj.hasOwnProperty(current)){
-		obj[current]++;
-	}else{
-		obj[current] = 1;
-	}
-	return obj;
+  if (obj.hasOwnProperty(current)) {
+    obj[current]++;
+  } else {
+    obj[current] = 1;
+  }
+  return obj;
 }, {});
 
 console.log(countName);
 ```
 
 ## Difference between reduce() and map() function.
+
 The reduce() function applies against accumulator and will be use to flatten an array or tranform array to object.
 The map() function applies an Array and makes new array.
 
-
 ## Array - reduce
+
 ```js
-var friends = [{
-  name: 'Anna',
-  books: ['Bible', 'Harry Potter'],
-  age: 21
-}, {
-  name: 'Bob',
-  books: ['War and peace', 'Romeo and Juliet'],
-  age: 26
-}, {
-  name: 'Alice',
-  books: ['The Lord of the Rings', 'The Shining'],
-  age: 18
-}];
+var friends = [
+  {
+    name: "Anna",
+    books: ["Bible", "Harry Potter"],
+    age: 21,
+  },
+  {
+    name: "Bob",
+    books: ["War and peace", "Romeo and Juliet"],
+    age: 26,
+  },
+  {
+    name: "Alice",
+    books: ["The Lord of the Rings", "The Shining"],
+    age: 18,
+  },
+];
 
-
-var bookList = friends.reduce(function(acc, value){
-	return acc.concat(value.books);
+var bookList = friends.reduce(function (acc, value) {
+  return acc.concat(value.books);
 }, []);
 
 console.log(bookList);
@@ -311,12 +321,12 @@ console.log(bookList);
   'The Shining' ]
  */
 
- console.log(bookList.length);
+console.log(bookList.length);
 //6
-
 ```
 
 ## References:
+
 - [Mozilla Developer Network - Reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 - [Mozilla Developer Network - Sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
 - [Mozilla Developer Network - apply](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
@@ -326,9 +336,3 @@ console.log(bookList);
 - [W3C - JavaScript Function Invocation](http://www.w3schools.com/js/js_function_invocation.asp)
 - [GitHub Help - Removing a remote](https://help.github.com/articles/removing-a-remote/)
 - [GitHub Help - Adding a remote](https://help.github.com/articles/adding-a-remote/)
-
-
-
-
-
-

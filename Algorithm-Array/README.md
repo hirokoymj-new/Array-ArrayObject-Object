@@ -1,8 +1,8 @@
 # Algorithm - Array
 
-1. Merge two array
+1. Merge two arrays
 2. Remove duplicate values
-3. Find min/max number in Array
+3. Find max number in Array
 4. Finding missing number in Array
 5. Sorting array
 6. Sorting array of objects
@@ -11,7 +11,7 @@
 9. Define Array.min(), Array.max() using prototype
 10. Flatten and convert Array to Object
 
-## Merge two array
+## Merge two arrays
 
 **Q1: Merge two array**
 
@@ -70,7 +70,19 @@ console.log(result);
 result.sort((a, b) => (a < b ? -1 : 1));
 ```
 
-## Find min/max number in Array
+<hr />
+
+## Find max number in Array
+
+**Q3: Find max number in array**
+
+```js
+const array = [2, 5, 6, 9];
+```
+
+**A3: Answer**
+
+key of answer
 
 - There is no max/min function in Array so we will try to use Math.max function.
 - Math.max function: **`Math.max(value1, value2, value3)`**.
@@ -81,11 +93,27 @@ result.sort((a, b) => (a < b ? -1 : 1));
 | call()  | Function.prototype.call()  | function.call(thisArg, arg1, arg2, arg3) |
 | apply() | Function.prototype.apply() | function.apply(thisArg, array)           |
 
+- Use pop() and reduce() to iterate an array to find a max value.
+
 ```js
-var array = [2, 5, 6, 9];
-var max = Math.max.apply(null, array); //9
-var min = Math.min.apply(null, array); //2
+const max1 = Math.max.apply(null, array); //9
+const max2 = Math.max(...array);
+
+array.sort((a, b) => (a < b ? -1 : 1));
+const array_copy = array;
+const max3 = array_copy.pop();
+
+const max4 = [2, 5, 6, 9].reduce((acc, currentValue) => {
+  return Math.max(acc, currentValue);
+});
+
+console.log(max1);
+console.log(max2);
+console.log(max3);
+console.log(max4);
 ```
+
+<hr />
 
 ## Finding missing number in Array
 

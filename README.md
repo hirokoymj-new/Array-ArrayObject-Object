@@ -16,12 +16,14 @@
 
 ### Methods
 
-| Function   | Syntax                 | Description                                                                               |
-| ---------- | ---------------------- | ----------------------------------------------------------------------------------------- |
-| Sort       | Array.sort()           |                                                                                           |
-| Find Index | Array.indexOf('a')     | ALWAYS Compare with **-1**<br />`Array.indexOf('a') === -1` <br>`Array.indexOf('a') > -1` |
-| Add        | Array.push()           | returns new length.                                                                       |
-| Merge      | Array.concat()         | returns new array.<br> array1.concat(array2)                                              |
-| Copy       | Array.slice(start,end) | The original array does **NOT modified**.                                                 |
-| Delete     | Array.splice(index, 1) | The original array **changes**!                                                           |
-| Find       | Array.find()           | Find a value of the first match.                                                          |
+| Function   | Syntax                 | Description                                                                                                 |
+| ---------- | ---------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Sort       | Array.sort()           |                                                                                                             |
+| Find Index | Array.indexOf('a')     | ALWAYS Compare with **-1**<br />`Array.indexOf('a') === -1` <br>`Array.indexOf('a') > -1`                   |
+| Add        | Array.push()           | Returns new length.                                                                                         |
+| Merge      | Array.concat()         | Returns new array.<br> array1.concat(array2)                                                                |
+| Pop        | Array.pop()            | Removes the last element from an array and returns the removed element. <br /> Modifed an original array.   |
+| Shift      | Array.shift()          | Removes the first element from an array and returns the removed element. <br /> Modified an original array. |
+| Copy       | Array.slice(start,end) | The original array does **NOT modified**.                                                                   |
+| Delete     | Array.splice(index, 1) | The original array **changes**!                                                                             |
+| Find       | Array.find()           | Find a value of the first match.                                                                            |

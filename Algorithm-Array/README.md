@@ -96,6 +96,7 @@ key of answer
 - Use pop() and reduce() to iterate an array to find a max value.
 
 ```js
+const array = [2, 5, 6, 9];
 const max1 = Math.max.apply(null, array); //9
 const max2 = Math.max(...array);
 

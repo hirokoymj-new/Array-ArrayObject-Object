@@ -1,13 +1,47 @@
-# Algorithm - Object
+# Object
+
+## Object.keys, values, entries
+
+| Methods             | Description                             |
+| ------------------- | --------------------------------------- |
+| Object.keys(obj)    | Returns an array of keys.               |
+| Object.values(obj)  | Returns an array of values.             |
+| Object.entries(obj) | Returns an array of [key, value] pairs. |
 
 ## Iterate Object
 
-| Methods             | Description                                 |
-| ------------------- | ------------------------------------------- |
-| Object.keys(obj)    | Extracts the keys in an array               |
-| Object.entries(obj) | Returns key value pairs array [key, value]. |
-| for...of iterable   | iterates iterable value (array)             |
-| for...in object     | iterates over an object                     |
+| Methods                                 | Description                             |
+| --------------------------------------- | --------------------------------------- |
+| for key in object                       | iterates over an object                 |
+| for [key, value] of Object.entries(obj) | iterates iterable value (Array, String) |
+
+```js
+let user = {
+  name: "John",
+  age: 30,
+};
+
+console.log(Object.keys(user));
+//[ 'name', 'age' ]
+
+console.log(Object.values(user));
+// [ 'John', 30 ]
+
+console.log(Object.entries(user));
+//[ [ 'name', 'John' ], [ 'age', 30 ] ]
+
+for (key in user) {
+  console.log(`${key}, ${user[key]}`);
+}
+// name, John
+// age, 30
+
+for ([key, value] of Object.entries(user)) {
+  console.log(`${key}, ${value}`);
+}
+// name, John
+// age, 30
+```
 
 **Example 1:**
 
@@ -29,41 +63,45 @@ for (const [key, value] of Object.entries(object1)) {
 
 <hr />
 
-**Example 2:**
+## for...of
 
 **Syntax**
 
 ```js
-for (variable in object)
-```
-
-```js
-const object = { a: 1, b: 2, c: 3 };
-
-for (const property in object) {
-  console.log(`${property}: ${object[property]}`);
+for (variable of iterable) {
+  statement;
 }
 ```
 
-<hr />
-
-**Example 3:**
+**Iterating over an Array**
 
 ```js
-const object1 = {
-  a: "somestring",
-  b: 42,
-  c: false,
-};
+const iterable = [10, 20, 30];
 
-console.log(Object.keys(object1));
-// expected output: Array ["a", "b", "c"]
+for (const value of iterable) {
+  console.log(value);
+}
+// 10
+// 20
+// 30
 ```
 
-<hr />
+**Iterating overf a String**
+
+```js
+const iterable = "boo";
+
+for (const value of iterable) {
+  console.log(value);
+}
+// "b"
+// "o"
+// "o
+```
 
 - [MDN - for...in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
 - [MDN - for..of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
 - [MDN - Object.entries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
 - [MDN - Object.keys](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
 - [How to iterate over a JavaScript object?](https://stackoverflow.com/questions/14379274/how-to-iterate-over-a-javascript-object)
+- [JavaScript.Info](https://javascript.info/keys-values-entries)

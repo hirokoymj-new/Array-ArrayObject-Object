@@ -119,7 +119,7 @@ for(let i=0; i<max; i++){
 ```js
 const data = [];
 ```
-**Q5: How to check if array is empty**
+**Q5:Answer How to check if array is empty**
 ```js
 data.length === 0
 ```
@@ -128,7 +128,7 @@ data.length === 0
 ```js
 const data = {}
 ```
-**Q6: How to check if Object is empty**
+**Q6:Answer How to check if Object is empty**
 ```js
 Object.keys(obj).length === 0
 ```

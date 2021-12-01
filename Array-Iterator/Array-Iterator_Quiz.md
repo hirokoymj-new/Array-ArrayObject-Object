@@ -19,7 +19,7 @@ console.log(result); //{ description: 'Rent', amount: 100, createdAt: 1000 }
 
 **Q2: Create array in which has skill has 'javascript'**.
 ```js
-var employees = [
+const employees = [
   { skill: 'css', user: 'Bill' },
   { skill: 'javascript', user: 'Chad' },
   { skill: 'javascript', user: 'Bill' },

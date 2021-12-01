@@ -61,8 +61,9 @@ var myArray = [
 	{'color':'yellow', 'name': 'yellowName'}
 ];
 
-let greenIndex = myArray.map(obj => obj.color).indexOf('green');
-console.log(greenIndex); //2
+const result5 = myArray.filter((v) => v.color === 'green') //[ 'red', 'blue', 'green', 'yellow' ]
+const greenIndex = result5.indexOf("green")
+
 ```
 
 

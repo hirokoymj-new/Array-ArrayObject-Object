@@ -124,6 +124,8 @@ const data = [];
 data.length === 0
 ```
 
+<hr />
+
 **Q6: How to check if Object is empty**
 ```js
 const data = {}
@@ -132,7 +134,7 @@ const data = {}
 ```js
 Object.keys(obj).length === 0
 ```
-
+<hr />
 
 **Q7:**
 - Grouping object
@@ -174,4 +176,5 @@ console.log(result);
 //   { skill: 'javascript', count: 3 },
 //   { skill: 'html', count: 1 } ]
 ```
+<hr />
 

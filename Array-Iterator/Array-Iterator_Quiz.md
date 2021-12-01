@@ -11,9 +11,8 @@ const data = [
 
 **Q1: Answer**
 ```js
-const result = data.filter((d)=> d.description.toLowerCase().indexOf('rent') !== -1);
-console.log(result);
-//[ { description: 'Rent', amount: 100, createdAt: 1000 } ]
+const result = data.find((v) => v.description === "Rent");
+console.log(result); //{ description: 'Rent', amount: 100, createdAt: 1000 }
 ```
 <hr />
 

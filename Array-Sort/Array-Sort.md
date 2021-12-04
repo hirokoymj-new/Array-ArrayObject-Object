@@ -61,23 +61,37 @@ const output = sortByMonth(data);////[ 'Jan', 'Feb', 'March', 'Dec' ]
 ### Sort - `array of object`
 
 ```js
-var dataCollection = [
+const months = [
+    "Jan",
+    "Feb",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+const dataCollection = [
   { values: { Month: "August", Sum: "10" } },
   { values: { Month: "February", Sum: "25" } },
-  { values: { Month: "July", Sum: "35" } }
+  { values: { Month: "July", Sum: "35" } },
 ];
 
-const sortByMonth = (array) => {
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  array.sort((a,b) => {
-    let num = months.indexOf(a.values.Month) - months.indexOf(b.values.Month);
-    //console.log(num);
-    return num;
-  });
-}
-
-sortByMonth(dataCollection);
+dataCollection.sort((a, b) => {
+  return months.indexOf(a.values.Month) < months.indexOf(b.values.Month)
+    ? -1
+    : 1;
+});
 console.log(dataCollection);
+// [
+//   { values: { Month: "February", Sum: "25" } },
+//   { values: { Month: "July", Sum: "35" } },
+//   { values: { Month: "August", Sum: "10" } },
+// ];
 ```
 
 
